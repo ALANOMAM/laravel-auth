@@ -1,1 +1,9 @@
-<h1>SPAZIO ADMIN</h1>
+
+@extends('layouts.app')
+
+@section('content')
+
+
+@endsection
+
+

@@ -31,15 +31,19 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+//per gestire tante rotte insieme sotto lo stesso middleware
+//e raggrupparle con elementi comuni 
 Route::middleware(['auth', 'verified'])
-        ->name('admin.')
-        ->prefix('admin')
+        ->name('admin.')// i loro nomi inizino tutti con "admin.
+        ->prefix('admin')// tutti i loro url inizino con "admin/"
         ->group(function() {
             // qui ci metto tutte le rotte che voglio che siano:
                 // raggruppate sotto lo stesso middelware
                 // i loro nomi inizino tutti con "admin.
                 // tutti i loro url inizino con "admin/"
                 
-            Route::get('/', [DashboardController::class, 'index'])->name('index');
+             //rotta per le pagine di amministrazione   
+            Route::get('/show', [DashboardController::class, 'show'])->name('show');
+            Route::get('/edit', [DashboardController::class, 'edit'])->name('edit');
         }
 );

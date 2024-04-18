@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container py-5">
-    <h1>pagina di admin</h1>
+    <h1>pagina edit</h1>
 </div>
 @endsection
