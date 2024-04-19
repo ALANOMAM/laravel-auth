@@ -42,7 +42,8 @@ Route::middleware(['auth', 'verified'])
                 // i loro nomi inizino tutti con "admin.
                 // tutti i loro url inizino con "admin/"
                 
-             //rotta per le pagine di amministrazione   
+             //rotta per le pagine di accessibili solo agli amministrazione   
+             Route::get('/', [DashboardController::class, 'index'])->name('inde');
             Route::get('/show', [DashboardController::class, 'show'])->name('show');
             Route::get('/edit', [DashboardController::class, 'edit'])->name('edit');
         }
