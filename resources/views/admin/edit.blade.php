@@ -22,30 +22,40 @@
           
           <div class="mb-3">
             <label for="Nome" class="form-label">Nome File</label>
-            <input type="text" class="form-control" id="Nome" name="Nome" value="{{$post->Nome}}">
+            <input type="text" class="form-control @error('Nome') is-invalid @enderror" id="Nome" name="Nome" value="{{old('Nome')??$post->Nome}}">
+            @error('Nome') 
+            <div class="invalid-feedback">
+             {{$message}} 
+            </div>
+            @enderror
           </div>
           
           <div class="mb-3">
               <label for="Descrizione" class="form-label">Descrizione</label>
-              <textarea type="text" class="form-control" id="Descrizione" name="Descrizione">{{$post->Descrizione}}</textarea>   
+              <textarea type="text" class="form-control @error('Descrizione') is-invalid @enderror" id="Descrizione" name="Descrizione">{{old('Descrizione')??$post->Descrizione}}</textarea>   
+              @error('Descrizione') 
+              <div class="invalid-feedback">
+               {{$message}} 
+              </div>
+              @enderror
             </div>
 
 
             <div class="mb-3">
               <label for="Immagine_di_copertina" class="form-label">Url immagime </label>
-              <textarea type="text" class="form-control" id="Immagine_di_copertina" name="Immagine_di_copertina">{{$post->Immagine_di_copertina}}</textarea>   
+              <textarea type="text" class="form-control" id="Immagine_di_copertina" name="Immagine_di_copertina">{{old('Immagine_di_copertina')??$post->Immagine_di_copertina}}</textarea>   
             </div>
             
             
 
             <div class="mb-3">
               <label for="Tecnologie_utilizzate" class="form-label">Tecnologie Utilizzate</label>
-              <input type="string" class="form-control" id="Tecnologie_utilizzate" name="Tecnologie_utilizzate" value="{{$post->Tecnologie_utilizzate}}">
+              <input type="string" class="form-control" id="Tecnologie_utilizzate" name="Tecnologie_utilizzate" value="{{old('Tecnologie_utilizzate')??$post->Tecnologie_utilizzate}}">
             </div>
 
             <div class="mb-3">
               <label for="Link_repo_GitHub" class="form-label">Link Per GitHub</label>
-              <input type="string" class="form-control" id="Link_repo_GitHub" name="Link_repo_GitHub" value="{{$post->Link_repo_GitHub}}">
+              <input type="string" class="form-control" id="Link_repo_GitHub" name="Link_repo_GitHub" value="{{old('Link_repo_GitHub')??$post->Link_repo_GitHub}}">
             </div>
 
 

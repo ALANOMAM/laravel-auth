@@ -33,6 +33,8 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+        $request->validated();
+
         $newPostElement = new Post();
 
          
@@ -69,8 +71,10 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, string $id)
+    public function update( string $id,StorePostRequest $request)
     {
+        $request->validated();
+
         $newPostElement2 =  Post::find($id);
 
          

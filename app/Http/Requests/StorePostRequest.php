@@ -22,7 +22,23 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'Nome'=>'required|max:100',
+            'Descrizione' => 'required',
+            'Immagine_di_copertina' =>'nullable',
+            'Tecnologie_utilizzate' =>'nullable',
+            'Link_repo_GitHub' => 'nullable'     
         ];
     }
+
+//traduzione degli errori in italiano
+public function messages(): array {
+    return [
+        'Nome.required' => 'Il nome deve essere inserito',
+        'Nome.max' => 'Il titolo deve avere massimo :max caratteri',
+        'Descrizione.required' => 'La descrizione deve essere inserita',   
+    ];
+}
+
+
+
 }
