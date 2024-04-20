@@ -14,6 +14,9 @@ class PostController extends Controller
     public function index()
     {
         //
+        $posts = Post::all();
+
+         return view("admin/index", compact("posts")); 
     }
 
     /**
@@ -22,6 +25,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view("admin/create");
     }
 
     /**
@@ -29,15 +33,28 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $newPostElement = new Post();
+
+         
+        $newPostElement->Nome = $request['Nome']; 
+        $newPostElement->Descrizione = $request['Descrizione'];
+        $newPostElement->Immagine_di_copertina = $request['Immagine_di_copertina'];
+        $newPostElement->Tecnologie_utilizzate = $request['Tecnologie_utilizzate'];
+        $newPostElement->Link_repo_GitHub = $request['Link_repo_GitHub'];
+        
+        $newPostElement->save();
+
+        return redirect()->route("admin.show", $newPostElement->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Post $post,string $id)
     {
         //
+        $post = Post::find($id);
+        return view("admin/show",compact('post'));
     }
 
     /**
@@ -46,6 +63,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        return view("admin/edit");
     }
 
     /**

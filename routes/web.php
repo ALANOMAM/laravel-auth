@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,8 +44,14 @@ Route::middleware(['auth', 'verified'])
                 // tutti i loro url inizino con "admin/"
                 
              //rotta per le pagine di accessibili solo agli amministrazione   
-             Route::get('/', [DashboardController::class, 'index'])->name('inde');
-            Route::get('/show', [DashboardController::class, 'show'])->name('show');
-            Route::get('/edit', [DashboardController::class, 'edit'])->name('edit');
-        }
+             // Route::get('/', [DashboardController::class, 'index'])->name('index');
+           /* Route::get('/show', [DashboardController::class, 'show'])->name('show');
+            Route::get('/create', [DashboardController::class, 'create'])->name('create');
+            Route::get('/edit', [DashboardController::class, 'edit'])->name('edit');*/
+
+            
+        },
+
+        Route::resource('admin',PostController::class)->middleware(['auth'])
+        
 );
