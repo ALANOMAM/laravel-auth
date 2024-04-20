@@ -60,18 +60,30 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(string $id)
     {
-        //
-        return view("admin/edit");
+        $post = Post::find($id);
+        return view("admin/edit",compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request, string $id)
     {
-        //
+        $newPostElement2 =  Post::find($id);
+
+         
+        $newPostElement2->Nome = $request['Nome']; 
+        $newPostElement2->Descrizione = $request['Descrizione'];
+        $newPostElement2->Immagine_di_copertina = $request['Immagine_di_copertina'];
+        $newPostElement2->Tecnologie_utilizzate = $request['Tecnologie_utilizzate'];
+        $newPostElement2->Link_repo_GitHub = $request['Link_repo_GitHub'];
+        
+        $newPostElement2->save();
+
+        return redirect()->route("admin.show", $newPostElement2->id);
+
     }
 
     /**
