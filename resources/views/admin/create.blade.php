@@ -10,7 +10,7 @@
 
           <div class="mb-3">
             <label for="Nome" class="form-label">Nome File</label>
-            <input type="text" class="form-control @error('Nome') is-invalid @enderror" id="Nome" name="Nome" value="{{old('Nome')}}">
+            <input type="text" class="form-control @error('Nome') is-invalid @enderror" id="Nome" name="Nome" value="{{old('Nome')}}" required>
             @error('Nome') 
                <div class="invalid-feedback">
                 {{$message}} 
@@ -20,7 +20,7 @@
           
           <div class="mb-3">
               <label for="Descrizione" class="form-label">Descrizione</label>
-              <textarea type="text" class="form-control @error('Descrizione') is-invalid @enderror" id="Descrizione" name="Descrizione">{{old('Descrizione')}}</textarea>   
+              <textarea type="text" class="form-control @error('Descrizione') is-invalid @enderror" id="Descrizione" name="Descrizione" required>{{old('Descrizione')}}</textarea>   
               @error('Descrizione') 
                <div class="invalid-feedback">
                 {{$message}} 
