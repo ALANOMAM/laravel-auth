@@ -43,11 +43,19 @@ Route::middleware(['auth', 'verified'])
                 // i loro nomi inizino tutti con "admin.
                 // tutti i loro url inizino con "admin/"
                 
-             //rotta per le pagine di accessibili solo agli amministrazione   
+             //ROTTE PER LE PAGINE SOLO ACCESSIBILI AGLI AMMINISTRATORI
+             
+             //la rotta che mi crea il trio con DashboardController e la introPage di 
+             //admin, dove do il benvenuto all'admin e scrivo il suo nome in modo dinamico
              Route::get('/', [DashboardController::class, 'introPage'])->name('introPage');
 
+
+             //la rotta che mi crea il trio con DashboardController e la pagina users di 
+             //admin, dove posso scrivere il nome di tutti gli utenti amministratori
             Route::get('/users', [DashboardController::class, 'users'])->name('users');
 
+           //la rotta che mi crea il trio con PostController e la cartella posts di 
+           //admin, dove sono presenti le varie viste, show, edit, index ecc
             Route::resource('posts',PostController::class);
         }
 
