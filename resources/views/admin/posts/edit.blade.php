@@ -4,10 +4,10 @@
 <div class="container py-5">
   <h1>PAGINA EDIT</h1>
 
-        <form action="{{ route('admin.posts.update', $post->id)}}" method="POST" >
+        <form action="{{ route('admin.posts.update', $post->id)}}" method="POST" enctype="multipart/form-data" {{--questo pezzo "enctype" l'ho aggiunto per via dell'immagine--}} >
 
             @csrf
-            {{--ci serve il mommando @method("PUT")--}}
+            
             @method("PUT")
 
           

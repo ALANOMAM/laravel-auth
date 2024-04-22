@@ -12,11 +12,11 @@ class PostSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {    //riferimento alle tecnologie utilizate
-        // $newComic->artists = implode(' , ', $comic['artists']);
+    {    
 
-        for($i = 0; $i < 10; $i++) {
+        
             //creo un nuovo oggetto che conterrà le info delle mie nuove righe
+            //per ora lo lascio cosi finchè non avrò collegato il tutto ad un file contenente gli array  
             $newPost = new Post();
     
             $newPost->Nome = 'alan';
@@ -28,7 +28,7 @@ class PostSeeder extends Seeder
     
             //questo ci serve per salvare i campi e applicare e modifiche
             $newPost->save();
-            }
+            
 
 
     }

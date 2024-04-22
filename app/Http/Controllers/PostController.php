@@ -95,8 +95,20 @@ class PostController extends Controller
          
         $newPostElement2->Nome = $request['Nome']; 
         $newPostElement2->Descrizione = $request['Descrizione'];
+
+
+         //controliamo se nella riquest dell'immagine c'è un file in arrivo
+        //questo perchè essendo nullable posso anche lasciare tutto vuoto volendo
+        if($request->hasFile('Immagine_di_copertina')){
+            //ci salviamo il percorso dell'immagine in una variabile che chiameremo "path"
+            //e contemporaneamente salviamo l'immagine nel server.(cioe nella cartella public in "app/public/storage")
+            //la cartella dove salveremo tutto si chiamerà "post_images"
+            $path = Storage::disk('public')->put('post_images', $request->Immagine_di_copertina);
+            
+            $newPostElement2->Immagine_di_copertina = $path;
+        }
          
-        //NB PER ORA LASCIAMO LA UPDATE IN PAUSA, RIGUARDEREMO MEGLIO PIU AVANTI INSIEME
+        //NB PER ORA LASCIAMO LA UPDATE CON QUESTA SOLUZIONE TEMPORANEA, RIGUARDEREMO MEGLIO PIU AVANTI INSIEME
         //A ELIMINAZIONE DELL'IMMAGINE 
         //$newPostElement2->Immagine_di_copertina = $request['Immagine_di_copertina'];
         $newPostElement2->Tecnologie_utilizzate = $request['Tecnologie_utilizzate'];
