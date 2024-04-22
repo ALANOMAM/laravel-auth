@@ -34,8 +34,11 @@
 
 
             <div class="mb-3">
-              <label for="Immagine_di_copertina" class="form-label"><strong>Url immagime</strong></label>
-              <textarea type="text" class="form-control" id="Immagine_di_copertina" name="Immagine_di_copertina">{{old('Immagine_di_copertina')??$post->Immagine_di_copertina}}</textarea>   
+              <div>
+                <label for="Immagine_di_copertina" class="form-label"><strong>Immagine Di Copertina</strong></label>
+              </div>
+              <img class="mb-2" src="{{asset('storage/'.$post->Immagine_di_copertina)}}" alt="">
+              <input type="file" class="form-control" id="Immagine_di_copertina" name="Immagine_di_copertina">
             </div>
             
             

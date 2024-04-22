@@ -6,7 +6,8 @@
 
  <!--contenitore immagine e info start-->   
   <div class="post-info d-flex gap-4">
-    <img src="{{$post->Immagine_di_copertina}}" alt="">
+    <!--per visualizzare la nostra immagine dobbiamo seguire questo percorso -->
+    <img src="{{asset('storage/'.$post->Immagine_di_copertina)}}" alt=""> 
 
     <ul class="list-group">
       <li class="list-group-item"><span><strong>Nome File : </strong></span>{{$post->Nome}}</li>

@@ -5,7 +5,7 @@
     <h1>PAGINA CREATE</h1>
 
         <!--indichiamo anche il metodo POST per la richesta-->
-        <form action="{{ route('admin.posts.store')}}" method="POST" >
+        <form action="{{ route('admin.posts.store')}}" method="POST"  enctype="multipart/form-data" {{--questo pezzo "enctype" l'ho aggiunto per via dell'immagine--}} >
             @csrf
 
           <div class="mb-3">
@@ -31,7 +31,8 @@
 
             <div class="mb-3">
               <label for="Immagine_di_copertina" class="form-label"><strong>Url immagime </strong></label>
-              <textarea type="text" class="form-control" id="Immagine_di_copertina" name="Immagine_di_copertina">{{old('Immagine_di_copertina')}}</textarea>   
+              <!--l'input dell'immagine deve essere di tipo "file" cosi posso selzezionare files nel mio pc-->
+              <input type="file" class="form-control" id="Immagine_di_copertina" name="Immagine_di_copertina">  
             </div>
             
             

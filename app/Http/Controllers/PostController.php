@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -33,6 +34,9 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+
+       //dd($request);
+
         $request->validated();
 
         $newPostElement = new Post();
@@ -40,7 +44,18 @@ class PostController extends Controller
          
         $newPostElement->Nome = $request['Nome']; 
         $newPostElement->Descrizione = $request['Descrizione'];
-        $newPostElement->Immagine_di_copertina = $request['Immagine_di_copertina'];
+        //controliamo se nella riquest dell'immagine c'è un file in arrivo
+        //questo perchè essendo nullable posso anche lasciare tutto vuoto volendo
+        if($request->hasFile('Immagine_di_copertina')){
+            //ci salviamo il percorso dell'immagine in una variabile che chiameremo "path"
+            //e contemporaneamente salviamo l'immagine nel server.(cioe nella cartella public in "app/public/storage")
+            //la cartella dove salveremo tutto si chiamerà "post_images"
+            $path = Storage::disk('public')->put('post_images', $request->Immagine_di_copertina);
+            
+            $newPostElement->Immagine_di_copertina = $path;
+        }
+       // $newPostElement->Immagine_di_copertina = $request['Immagine_di_copertina'];
+
         $newPostElement->Tecnologie_utilizzate = $request['Tecnologie_utilizzate'];
         $newPostElement->Link_repo_GitHub = $request['Link_repo_GitHub'];
         
@@ -80,7 +95,10 @@ class PostController extends Controller
          
         $newPostElement2->Nome = $request['Nome']; 
         $newPostElement2->Descrizione = $request['Descrizione'];
-        $newPostElement2->Immagine_di_copertina = $request['Immagine_di_copertina'];
+         
+        //NB PER ORA LASCIAMO LA UPDATE IN PAUSA, RIGUARDEREMO MEGLIO PIU AVANTI INSIEME
+        //A ELIMINAZIONE DELL'IMMAGINE 
+        //$newPostElement2->Immagine_di_copertina = $request['Immagine_di_copertina'];
         $newPostElement2->Tecnologie_utilizzate = $request['Tecnologie_utilizzate'];
         $newPostElement2->Link_repo_GitHub = $request['Link_repo_GitHub'];
         

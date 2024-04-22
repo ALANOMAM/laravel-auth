@@ -21,7 +21,7 @@ class PostSeeder extends Seeder
     
             $newPost->Nome = 'alan';
             $newPost->Descrizione = 'you are not alone, i am here with you' ;
-            $newPost->Immagine_di_copertina = 'https://media.istockphoto.com/id/537331500/photo/programming-code-abstract-technology-background-of-software-deve.jpg?s=612x612&w=0&k=20&c=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8=';
+            $newPost->Immagine_di_copertina = ' ';
             $newPost->Tecnologie_utilizzate=  implode(' , ', ['html','css','javascrit']) ;
             $newPost->Link_repo_GitHub= 'https://www.youtube.com/' ;
             
