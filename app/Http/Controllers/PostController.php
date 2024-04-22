@@ -16,7 +16,7 @@ class PostController extends Controller
         //
         $posts = Post::all();
 
-         return view("admin/index", compact("posts")); 
+         return view("admin/posts/index", compact("posts")); 
     }
 
     /**
@@ -25,7 +25,7 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view("admin/create");
+        return view("admin/posts/create");
     }
 
     /**
@@ -46,17 +46,17 @@ class PostController extends Controller
         
         $newPostElement->save();
 
-        return redirect()->route("admin.show", $newPostElement->id);
+        return redirect()->route("admin.posts.show", $newPostElement->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Post $post,string $id)
+    public function show(Post $post)
     {
         //
-        $post = Post::find($id);
-        return view("admin/show",compact('post'));
+        // $post = Post::find($id);
+        return view("admin/posts/show", compact('post'));
     }
 
     /**
@@ -65,7 +65,7 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $post = Post::find($id);
-        return view("admin/edit",compact('post'));
+        return view("admin/posts/edit",compact('post'));
     }
 
     /**
@@ -86,7 +86,7 @@ class PostController extends Controller
         
         $newPostElement2->save();
 
-        return redirect()->route("admin.show", $newPostElement2->id);
+        return redirect()->route("admin.posts.show", $newPostElement2->id);
 
     }
 
@@ -99,6 +99,6 @@ class PostController extends Controller
         
         $post->delete();
 
-        return redirect()->route("admin.index", $post->id);
+        return redirect()->route("admin.posts.index", $post->id);
     }
 }

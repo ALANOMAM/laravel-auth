@@ -21,7 +21,7 @@
         <td>{{$post->id}} - {{$post->Nome}}</td>
         <!--è in questo punto che collego il file/vista "index" col file show tramite link-->
         <!--la rotta giù me la ricavo cercando sul terminale, e mi da appunto "comics.show"-->
-        <td><a class="btn btn-success" href="{{route('admin.show' , $post->id )}}">visualizza post</a></td>
+        <td><a class="btn btn-success" href="{{route('admin.posts.show' , $post->id )}}">visualizza post</a></td>
        </tr>
         @endforeach
         
@@ -30,7 +30,7 @@
 
   <!--è in questo punto che collego il file index col file/vista "create" tramite link-->
 <!--la rotta giù me la ricavo cercando sul terminale, e mi da appunto "comics.create"-->
-  <a href="{{route('admin.create')}}" class="btn btn-primary">Aggiungi post</a>
+  <a href="{{route('admin.posts.create')}}" class="btn btn-primary">Aggiungi post</a>
  
 </div>
 @endsection

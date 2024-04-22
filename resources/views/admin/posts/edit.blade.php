@@ -4,7 +4,7 @@
 <div class="container py-5">
   <h1>PAGINA EDIT</h1>
 
-        <form action="{{ route('admin.update', $post->id)}}" method="POST" >
+        <form action="{{ route('admin.posts.update', $post->id)}}" method="POST" >
 
             @csrf
             {{--ci serve il mommando @method("PUT")--}}

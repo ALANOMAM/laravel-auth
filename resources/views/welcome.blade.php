@@ -26,6 +26,6 @@
 </div>
 
 <div class="container">
-    <a class="btn btn-primary" href="{{route('admin.index')}}">Vai alla sezione admin </a>
+    <a class="btn btn-primary" href="{{route('admin.introPage')}}">Vai alla sezione admin </a>
 </div>
 @endsection

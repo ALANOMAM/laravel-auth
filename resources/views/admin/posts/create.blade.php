@@ -5,7 +5,7 @@
     <h1>PAGINA CREATE</h1>
 
         <!--indichiamo anche il metodo POST per la richesta-->
-        <form action="{{ route('admin.store')}}" method="POST" >
+        <form action="{{ route('admin.posts.store')}}" method="POST" >
             @csrf
 
           <div class="mb-3">

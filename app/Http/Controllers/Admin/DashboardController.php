@@ -10,23 +10,16 @@ class DashboardController extends Controller
 {
     //  qui definiamo il metodo index che ci restituisce la pagina iniziale del Admin/DashboardController
     
-   /* public function index() {
+   public function introPage() {
 
         $posts = Post::all();
 
-        return view('admin.index', compact("posts"));
+        return view('admin.introPage', compact("posts"));
     }
     
-    public function show() {
-        return view('admin.show');
+    public function users() {
+        return view('admin.users');
     }
   
-    public function create() {
-        return view('admin.create');
-    }
-
-
-    public function edit() {
-        return view('admin.edit');
-    } */
+    
 }

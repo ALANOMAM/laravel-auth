@@ -44,14 +44,13 @@ Route::middleware(['auth', 'verified'])
                 // tutti i loro url inizino con "admin/"
                 
              //rotta per le pagine di accessibili solo agli amministrazione   
-             // Route::get('/', [DashboardController::class, 'index'])->name('index');
-           /* Route::get('/show', [DashboardController::class, 'show'])->name('show');
-            Route::get('/create', [DashboardController::class, 'create'])->name('create');
-            Route::get('/edit', [DashboardController::class, 'edit'])->name('edit');*/
+             Route::get('/', [DashboardController::class, 'introPage'])->name('introPage');
 
-            
-        },
+            Route::get('/users', [DashboardController::class, 'users'])->name('users');
 
-        Route::resource('admin',PostController::class)->middleware(['auth'])
+            Route::resource('posts',PostController::class);
+        }
+
+       
         
 );
